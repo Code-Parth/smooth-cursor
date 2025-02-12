@@ -1,7 +1,7 @@
 {
   "name": "smooth-cursor",
   "description": "A customizable, physics-based smooth cursor animation component for React applications with spring animations, velocity tracking, and rotation effects",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/cjs/index.js",
   "files": [
     "dist"
