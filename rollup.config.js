@@ -1,11 +1,13 @@
-import resolve from "@rollup/plugin-node-resolve"
-import commonjs from "@rollup/plugin-commonjs"
-import typescript from "@rollup/plugin-typescript"
-import dts from "rollup-plugin-dts"
-import terser from "@rollup/plugin-terser"
-import peerDepsExternal from "rollup-plugin-peer-deps-external"
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
+import { dts } from "rollup-plugin-dts";
+import terser from "@rollup/plugin-terser";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
-const packageJson = require("./package.json")
+const packageJson = {
+    "main": "dist/cjs/index.js",
+};
 
 export default [
     {
@@ -15,24 +17,28 @@ export default [
                 file: packageJson.main,
                 format: "esm",
                 sourcemap: true,
-            },
+            }
         ],
         plugins: [
-            // NEW
-            typescript(),
             peerDepsExternal(),
-
             resolve(),
             commonjs(),
-
-            // NEW
-            terser(),
+            typescript({
+                tsconfig: "./tsconfig.json",
+            }),
+            terser()
         ],
+        external: ["react", "react-dom", "framer-motion"]
     },
     {
-        input: "dist/cjs/types/src/index.d.ts",
-        output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts.default()],
-        external: [/\.css$/],
-    },
-]
+        input: "src/index.ts",
+        output: [
+            {
+                file: "dist/index.d.ts",
+                format: "esm"
+            }
+        ],
+        plugins: [dts()],
+        external: [/\.css$/, /\.svg$/, "react", "react-dom", "framer-motion"]
+    }
+];
