@@ -24,7 +24,11 @@ const DefaultCursorSVG: FC = () => {
             height={54}
             viewBox="0 0 50 54"
             fill="none"
-            className="scale-50"
+            style={
+                {
+                    scale: 0.5
+                }
+            }
         >
             <g filter="url(#filter0_d_91_7928)">
                 <path
@@ -190,7 +194,7 @@ const SmoothCursor: FC<SmoothCursorProps> = (
                 translateY: "-50%",
                 rotate: rotation,
                 scale: scale,
-                zIndex: 50,
+                zIndex: 100,
                 pointerEvents: "none",
                 willChange: "transform",
             }}
