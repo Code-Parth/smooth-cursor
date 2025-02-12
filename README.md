@@ -2,8 +2,9 @@
 
 A highly customizable, physics-based smooth cursor animation component for React applications. Features spring animations, velocity tracking, and rotation effects for creating engaging cursor experiences.
 
-🎯 **[Live Preview](https://figbruary.apexia.club)** - See the smooth cursor in action!
+https://github.com/user-attachments/assets/2b56dea7-9e98-4563-9b61-ab668b08d2e5
 
+🎯 **[Live Preview](https://figbruary.apexia.club)** - See the smooth cursor in action!
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/code-parth/smooth-cursor)
 ![NPM Version](https://img.shields.io/npm/v/smooth-cursor)
