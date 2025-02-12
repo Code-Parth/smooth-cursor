@@ -4,6 +4,8 @@ A highly customizable, physics-based smooth cursor animation component for React
 
 🎯 **[Live Preview](https://figbruary.apexia.club)** - See the smooth cursor in action!
 
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/code-parth/smooth-cursor)
 ![NPM Version](https://img.shields.io/npm/v/smooth-cursor)
 ![License](https://img.shields.io/npm/l/smooth-cursor)
 
