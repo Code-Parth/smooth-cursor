@@ -8,6 +8,12 @@ interface Position {
 
 interface SmoothCursorProps {
     cursor?: JSX.Element;
+    springConfig?: {
+        damping: number;
+        stiffness: number;
+        mass: number;
+        restDelta: number;
+    }
 }
 
 const DefaultCursorSVG: FC = () => {
@@ -73,7 +79,15 @@ const DefaultCursorSVG: FC = () => {
 }
 
 const SmoothCursor: FC<SmoothCursorProps> = (
-    { cursor = <DefaultCursorSVG /> }
+    {
+        cursor = <DefaultCursorSVG />,
+        springConfig = {
+            damping: 45,
+            stiffness: 400,
+            mass: 1,
+            restDelta: 0.001
+        }
+    }
 ) => {
     // export default function SmoothCursor({ cursor = Cursor() }: { cursor?: JSX.Element }) {
     const [isMoving, setIsMoving] = useState(false);
@@ -82,13 +96,6 @@ const SmoothCursor: FC<SmoothCursorProps> = (
     const lastUpdateTime = useRef(Date.now());
     const previousAngle = useRef(0);
     const accumulatedRotation = useRef(0);
-
-    const springConfig = {
-        damping: 45,
-        stiffness: 400,
-        mass: 1,
-        restDelta: 0.001
-    };
 
     const cursorX = useSpring(0, springConfig);
     const cursorY = useSpring(0, springConfig);
@@ -199,3 +206,5 @@ const SmoothCursor: FC<SmoothCursorProps> = (
         </motion.div>
     );
 };
+
+export default SmoothCursor;
